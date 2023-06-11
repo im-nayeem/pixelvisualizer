@@ -1,0 +1,8 @@
+README.md
+setup.py
+pixelplotter/pixeldrawer.py
+pixelplotter.egg-info/PKG-INFO
+pixelplotter.egg-info/SOURCES.txt
+pixelplotter.egg-info/dependency_links.txt
+pixelplotter.egg-info/requires.txt
+pixelplotter.egg-info/top_level.txt
