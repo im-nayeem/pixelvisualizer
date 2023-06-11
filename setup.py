@@ -7,6 +7,6 @@ setup(
     packages=['pixelplotter'],
     install_requires=['pygame'],
     author='Nayeem Hossain',
-    author_email='nayeem.cse.com',
+    author_email='nayeem.cse.@gmail.com',
     url='https://github.com/im-nayeem/pixelplotter',
 )
