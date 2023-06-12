@@ -2,22 +2,28 @@ import pygame
 from pygame.locals import *
 
 class PixelDrawer:
+
     def __init__(self):
         # Initialize pygame
         pygame.init()
 
         # Set up the display
-        self.width, self.height = 1000, 730
-        self.box_size = 17  # Size of each box representing a pixel
-        self.margin = 32  # Margin for labels
+        self.width, self.height = 1108, 630
+        self.box_size = 14  # Size of each box representing a pixel
+        self.margin = 21 # Margin for labels
+
         self.screen = pygame.display.set_mode((self.width, self.height))
-        pygame.display.set_caption("Pixel Line Drawing")
+        pygame.display.set_caption("(-o_o-)      Meow /ᐠ｡ꞈ｡ᐟ\ Meow =(^.^)= Pixel Visualizer")
 
         # Define colors
         self.WHITE = (255, 255, 255)
         self.BLACK = (0, 0, 0)
-        self.LABEL_COLOR = (20, 30, 30)  # Dark gray color for labels
+        self.LABEL_COLOR = (0, 0, 0)  
+        self.AXIS_COLOR = (204, 33, 33)
 
+
+
+    # Initialize pygame screen
     def start(self):
         # Fill the screen with white color
         self.screen.fill(self.WHITE)
@@ -27,6 +33,7 @@ class PixelDrawer:
         self._draw_axes()
 
 
+    # Function to plot a pixel
     def draw_pixel(self, x, y, fill=True):
         x1 = (x + self.width // (2 * self.box_size)) * self.box_size
         y1 = (-y + self.height // (2 * self.box_size)) * self.box_size
@@ -35,10 +42,9 @@ class PixelDrawer:
             pygame.draw.rect(self.screen, self.BLACK, (x1, y1, self.box_size, self.box_size))
         pygame.display.flip()
 
-    
 
     def _draw_labels(self):
-        font = pygame.font.Font(None, 15)
+        font = pygame.font.Font(None, 14)
 
         # Draw x-axis labels
         for i in range(-self.width // (2 * self.box_size), self.width // (2 * self.box_size)):
@@ -59,11 +65,13 @@ class PixelDrawer:
 
     def _draw_axes(self):
         # Draw x-axis line
-        pygame.draw.line(self.screen, self.BLACK, (0, self.height // 2), (self.width, self.height // 2), 2)
+        pygame.draw.line(self.screen, self.AXIS_COLOR, (0, self.height // 2), (self.width, self.height // 2), 2)
 
         # Draw y-axis line
-        pygame.draw.line(self.screen, self.BLACK, (self.width // 2, 0), (self.width // 2, self.height), 2)
-   
+        pygame.draw.line(self.screen, self.AXIS_COLOR, (self.width // 2, 0), (self.width // 2, self.height), 2)
+    
+
+    # Event listener to quit
     def execute(self):
         running = True
         while running:
