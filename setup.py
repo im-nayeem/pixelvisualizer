@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='pixelplotter',
-    version='1.0',
+    version='1.0.1',
     description='A package for visualizing pixel',
     packages=['pixelplotter'],
     install_requires=['pygame'],
