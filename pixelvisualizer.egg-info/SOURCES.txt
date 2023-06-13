@@ -1,6 +1,6 @@
 README.md
 setup.py
-drawer/alorithmdrawer.py
+pixelvisualizer/drawer.py
 pixelvisualizer/pixelplotter.py
 pixelvisualizer.egg-info/PKG-INFO
 pixelvisualizer.egg-info/SOURCES.txt
