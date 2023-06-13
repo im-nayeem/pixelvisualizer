@@ -1,6 +1,5 @@
 import pygame
 from pygame.locals import *
-from drawer import algorithmdrawer
 
 class PixelPlotter:
 
