@@ -1,10 +1,10 @@
 from setuptools import setup
 
 setup(
-    name='pixelplotter',
-    version='1.0.1',
-    description='A package for visualizing pixel',
-    packages=['pixelplotter'],
+    name='pixelvisualizer',
+    version='1.0.2',
+    description='A package for visualizing drawings with pixel',
+    packages=['pixelvisualizer','drawer'],
     install_requires=['pygame'],
     author='Nayeem Hossain',
     author_email='nayeem.cse.@gmail.com',

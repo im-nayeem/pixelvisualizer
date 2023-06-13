@@ -1,7 +1,8 @@
 import pygame
 from pygame.locals import *
+from drawer import algorithmdrawer
 
-class PixelDrawer:
+class PixelPlotter:
 
     def __init__(self):
         # Initialize pygame
@@ -34,7 +35,7 @@ class PixelDrawer:
 
 
     # Function to plot a pixel
-    def draw_pixel(self, x, y, fill=True):
+    def plot_pixel(self, x, y, fill=True):
         x1 = (x + self.width // (2 * self.box_size)) * self.box_size
         y1 = (-y + self.height // (2 * self.box_size)) * self.box_size
         pygame.draw.rect(self.screen, self.BLACK, (x1, y1, self.box_size, self.box_size), 1)
@@ -80,7 +81,3 @@ class PixelDrawer:
                     running = False
 
 
-
- 
-
-    
