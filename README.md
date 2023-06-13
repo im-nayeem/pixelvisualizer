@@ -20,6 +20,12 @@ pip install git+https://github.com/im-nayeem/pixelplotter.git
 ```
 Make sure you have pygame installed as well, as it is listed as a dependency.
 
+## To Update Package:
+```bash
+pip uninstall pixelplotter
+pip install git+https://github.com/im-nayeem/pixelplotter.git
+```
+
 ## Usage
 1. Import pixeldrawer module
 ```python
