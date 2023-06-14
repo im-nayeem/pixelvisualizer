@@ -2,7 +2,7 @@
 
 # Draw line using bresenham's line drawing algorithm
 # @param plotter the pixelvisualizer.pixelplotter.PixelPlotter instance 
-def draw_bresenhams_line(plotter, x1, y1, x2, y2):
+def draw_bresenhams_line(plotter, x1, y1, x2, y2, color = (0, 0, 0)):
 
     x, y = x1, y1
 
@@ -12,7 +12,7 @@ def draw_bresenhams_line(plotter, x1, y1, x2, y2):
     m = dy / dx
 
     if(m < 1):
-        draw_direct_line(plotter, x1, y1, x2, y2)
+        draw_direct_line(plotter, x1, y1, x2, y2, color)
         return
 
     if(m < 1):
@@ -25,7 +25,7 @@ def draw_bresenhams_line(plotter, x1, y1, x2, y2):
         p = c1 - dy
 
     while(x <= x2):
-        plotter.draw_pixel(x , y)
+        plotter.plot_pixel(x , y, color)
         if(m < 1):
             if(p < 0):
                 p = p + c1
@@ -48,20 +48,20 @@ def draw_bresenhams_line(plotter, x1, y1, x2, y2):
 
 
 # Draw line using bresenham's circle drawing algorithm
-def draw_bresenhams_circle(plotter, r, h, k):
+def draw_bresenhams_circle(plotter, r, h, k, color = (0, 0, 0)):
     d = 3 - 2 * r
     x = 0
     y = r
 
     while(x <= y):
-        plotter.draw_pixel(x+h , y+k)
-        plotter.draw_pixel(y+h , x+k)
-        plotter.draw_pixel(-y+h, x+k)
-        plotter.draw_pixel(-x+h, y+k)
-        plotter.draw_pixel(-x+h, -y+k)
-        plotter.draw_pixel(-y+h, -x+k)
-        plotter.draw_pixel(y+h, -x+k)
-        plotter.draw_pixel(x+h, -y+k)
+        plotter.plot_pixel(x+h , y+k, color)
+        plotter.plot_pixel(y+h , x+k, color)
+        plotter.plot_pixel(-y+h, x+k, color)
+        plotter.plot_pixel(-x+h, y+k, color)
+        plotter.plot_pixel(-x+h, -y+k, color)
+        plotter.plot_pixel(-y+h, -x+k, color)
+        plotter.plot_pixel(y+h, -x+k, color)
+        plotter.plot_pixel(x+h, -y+k, color)
 
         if(d < 0):
             d = d + 4*x + 6
@@ -75,12 +75,12 @@ def draw_bresenhams_circle(plotter, r, h, k):
 
 
 # Draw line using direct use of line equation
-def draw_direct_line(plotter, x1, y1, x2, y2):
+def draw_direct_line(plotter, x1, y1, x2, y2,color = (0, 0, 0)):
     dx = x2 - x1
     dy = y2 - y1
 
     if(dx == 0):
-        draw_dda_line(plotter, x1, y1, x2, y2)
+        draw_dda_line(plotter, x1, y1, x2, y2, color)
         return
     
     m = dy/dx
@@ -96,7 +96,7 @@ def draw_direct_line(plotter, x1, y1, x2, y2):
         xend = x2
     
     while(True):
-        plotter.draw_pixel(round(x), round(y))
+        plotter.plot_pixel(round(x), round(y), color)
         x = x+1
         y = m * x + b
         if(x > xend):
@@ -105,7 +105,7 @@ def draw_direct_line(plotter, x1, y1, x2, y2):
 
 
 # Draw Line using DDA algorithm
-def draw_dda_line(plotter, x1, y1, x2, y2):
+def draw_dda_line(plotter, x1, y1, x2, y2,color = (0, 0, 0)):
     dx = x2 - x1
     dy = y2 - y1
 
@@ -116,7 +116,7 @@ def draw_dda_line(plotter, x1, y1, x2, y2):
     y = y1
 
     while(x <= x2):
-        plotter.draw_pixel(round(x), round(y))
+        plotter.plot_pixel(round(x), round(y), color)
         x = x + xinc
         y = y + yinc
         
