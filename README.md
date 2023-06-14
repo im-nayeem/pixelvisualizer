@@ -1,66 +1,62 @@
 # Pixel Plotter - Python Package
 
-`pixelplotter` is a Python package for visualizing pixels while implementing different line or circle drawing algorithms in computer graphics.
+`pixelvisualizer` is a Python package for visualizing and plotting pixels while implementing different line or circle drawing algorithms in computer graphics.
 
-## Features
-
-- Visualize the generated pixels in various line and circle drawing algorithms in computer graphics using `pygame`.
-- Simple and easy-to-use API.
 ## Dependency
 First install `pygame` to use this package:
 ```bash
 pip install pygame
 ```
-## Installation
 
-You can install `pixelplotter` via `pip`:
+## Installation
+You can install `pixelvisualizer` via `pip`:
 
 ```bash
-pip install git+https://github.com/im-nayeem/pixelplotter.git
+pip install git+https://github.com/im-nayeem/pixelvisualizer.git
 ```
 Make sure you have pygame installed as well, as it is listed as a dependency.
 
 ## To Update Package:
 ```bash
-pip uninstall pixelplotter
-pip install git+https://github.com/im-nayeem/pixelplotter.git
+pip uninstall pixelvisualizer
+pip install git+https://github.com/im-nayeem/pixelvisualizer.git
 ```
 
 ## Usage
-1. Import pixeldrawer module
+1. Import pixelplotter module
 ```python
-from pixelplotter import pixeldrawer
+from pixelvisualizer import pixelplotter
 ```
 
-2. Create an instance of PixelDrawer class and start by calling start() function
+2. Create an instance of PixelPlotter class and start by calling start() function
 ```python
-app = pixeldrawer.PixelDrawer()
-app.start()
+plotter = pixelplotter.PixelPlotter()
+plotter.start()
 ```
 
-3. To plot a pixel call draw_pixel() function
+3. To plot a pixel call plot_pixel() function
 ```python
-app.draw_pixel(4,5)
+plotter.plot_pixel(4,5)
 ```
 
 4. After plotting all pixels call function execute()
 ```python
-app.execute()
+plotter.execute()
 ```
 Here is the complete code:
 ```python
-from pixelplotter import pixeldrawer
-app = pixeldrawer.PixelDrawer()
-app.start()
-app.draw_pixel(4,5)
-app.execute()
+from pixelvisualizer import pixelplotter
+plotter = pixelplotter.PixelPlotter()
+plotter.start()
+plotter.plot_pixel(4,5)
+plotter.execute()
 ```
 
 ## Example: Bresenham's Line Drawing Algorithm
 ```python
-from pixelplotter import pixeldrawer
+from pixelvisualizer import pixelplotter
 
-def bresenhamsLineDrawing(drawer, x1, y1, x2, y2):
+def bresenhamsLineDrawing(plotter, x1, y1, x2, y2):
     x = x1
     y = y1
     dx = x2 - x1
@@ -77,7 +73,7 @@ def bresenhamsLineDrawing(drawer, x1, y1, x2, y2):
         p = c1 - dy
 
     while(x <= x2):
-        drawer.draw_pixel(x, y)
+        plotter.plot_pixel(x, y)
         if(m < 1):
             if(p < 0):
                 p = p + c1
@@ -97,32 +93,32 @@ def bresenhamsLineDrawing(drawer, x1, y1, x2, y2):
                 x = x + 1
                 y = y + 1
 
-app = pixeldrawer.PixelDrawer()
-app.start()
-bresenhamsLineDrawing(app, 0, 0, 5, 7)
-app.execute()
+plotter = pixelplotter.PixelPlotter()
+plotter.start()
+bresenhamsLineDrawing(plotter, 0, 0, 5, 7)
+plotter.execute()
 ```
 **Output:**
-![image](https://github.com/im-nayeem/pixelplotter/assets/77660934/c28140a0-96f0-46c1-b58f-6d5ac48871e6)
+![image](https://github.com/im-nayeem/pixelvisualizer/assets/77660934/c28140a0-96f0-46c1-b58f-6d5ac48871e6)
 
 ## Example: Bresenham's Circle Drawing Algorithm
 ```python
-from pixelplotter import pixeldrawer
+from pixelvisualizer import pixelplotter
 
-def drawCircle(drawer, r, h, k):
+def drawCircle(plotter, r, h, k):
     d = 3 - 2*r
     x = 0
     y = r
 
     while(x <= y):
-        drawer.draw_pixel(x+h , y+k)
-        drawer.draw_pixel(y+h , x+k)
-        drawer.draw_pixel(-y+h, x+k)
-        drawer.draw_pixel(-x+h, y+k)
-        drawer.draw_pixel(-x+h, -y+k)
-        drawer.draw_pixel(-y+h, -x+k)
-        drawer.draw_pixel(y+h, -x+k)
-        drawer.draw_pixel(x+h, -y+k)
+        plotter.plot_pixel(x+h , y+k)
+        plotter.plot_pixel(y+h , x+k)
+        plotter.plot_pixel(-y+h, x+k)
+        plotter.plot_pixel(-x+h, y+k)
+        plotter.plot_pixel(-x+h, -y+k)
+        plotter.plot_pixel(-y+h, -x+k)
+        plotter.plot_pixel(y+h, -x+k)
+        plotter.plot_pixel(x+h, -y+k)
 
         if(d < 0):
             d = d + 4*x + 6
@@ -132,11 +128,11 @@ def drawCircle(drawer, r, h, k):
             d = d + d*(x - y) + 10
             x = x + 1
             y = y - 1
-app = pixeldrawer.PixelDrawer()
-app.start()
-drawCircle(app, 7, 10, 10)
-app.execute()
+plotter = pixelplotter.PixelPlotter()
+plotter.start()
+drawCircle(plotter, 7, 10, 10)
+plotter.execute()
 ```
 **Output:**
-![image](https://github.com/im-nayeem/pixelplotter/assets/77660934/a83b4de5-17cb-4f70-9e42-e1c9a6215ead)
+![image](https://github.com/im-nayeem/pixelvisualizer/assets/77660934/a83b4de5-17cb-4f70-9e42-e1c9a6215ead)
 
