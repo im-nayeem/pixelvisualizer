@@ -10,13 +10,13 @@ def draw_bresenhams_line(plotter, x1, y1, x2, y2, color = (0, 0, 0)):
     dy = y2 - y1
 
     if(dx == 0):
-        draw_dda_line(plotter, x1, y1, x2, y2, color)
+        draw_DDA_line(plotter, x1, y1, x2, y2, color)
         return
     
     m = dy / dx
 
     if(m < 1):
-        draw_direct_line(plotter, x1, y1, x2, y2, color)
+        draw_DDA_line(plotter, x1, y1, x2, y2, color)
         return
 
     if(m < 1):
@@ -84,7 +84,7 @@ def draw_direct_line(plotter, x1, y1, x2, y2,color = (0, 0, 0)):
     dy = y2 - y1
 
     if(dx == 0):
-        draw_dda_line(plotter, x1, y1, x2, y2, color)
+        draw_DDA_line(plotter, x1, y1, x2, y2, color)
         return
     
     m = dy/dx
@@ -109,9 +109,13 @@ def draw_direct_line(plotter, x1, y1, x2, y2,color = (0, 0, 0)):
 
 
 # Draw Line using DDA algorithm
-def draw_dda_line(plotter, x1, y1, x2, y2,color = (0, 0, 0)):
+# (c) Nayeem Hossain
+def draw_DDA_line(plotter, x1, y1, x2, y2, color = (0, 0, 0)):
     dx = x2 - x1
     dy = y2 - y1
+
+    x_flag = 1 if dx >= 0 else -1
+    y_flag = 1 if dy >= 0 else -1
 
     steps = max(abs(dx), abs(dy))
     xinc = dx / steps
@@ -119,10 +123,9 @@ def draw_dda_line(plotter, x1, y1, x2, y2,color = (0, 0, 0)):
     x = x1
     y = y1
 
-    while(x <= x2):
+    while(x*x_flag <= x2*x_flag):
         plotter.plot_pixel(round(x), round(y), color)
         x = x + xinc
         y = y + yinc
-        
-        if(y > y2):
-            break;
+        if(y*y_flag > y2*y_flag):
+            break
