@@ -1,1 +1,2 @@
-from .pixelplotter.pixeldrawer import *
+from .pixelvisualizer.pixelplotter import *
+from .pixelvisualizer.drawer import *

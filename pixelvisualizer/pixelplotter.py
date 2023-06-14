@@ -1,7 +1,13 @@
 import pygame
 from pygame.locals import *
 
-class PixelDrawer:
+class PixelPlotter:
+
+    WHITE = (255, 255, 255)
+    BLACK = (0, 0, 0)
+    GREEN = (0, 255, 0)
+    RED = (255, 0, 0)
+    BLUE = (0, 0, 255)
 
     def __init__(self):
         # Initialize pygame
@@ -16,8 +22,6 @@ class PixelDrawer:
         pygame.display.set_caption("(-o_o-)      Meow /ᐠ｡ꞈ｡ᐟ\ Meow =(^.^)= Pixel Visualizer")
 
         # Define colors
-        self.WHITE = (255, 255, 255)
-        self.BLACK = (0, 0, 0)
         self.LABEL_COLOR = (0, 0, 0)  
         self.AXIS_COLOR = (204, 33, 33)
 
@@ -34,12 +38,12 @@ class PixelDrawer:
 
 
     # Function to plot a pixel
-    def draw_pixel(self, x, y, fill=True):
+    def plot_pixel(self, x, y, color=(0, 0, 0)):
         x1 = (x + self.width // (2 * self.box_size)) * self.box_size
         y1 = (-y + self.height // (2 * self.box_size)) * self.box_size
-        pygame.draw.rect(self.screen, self.BLACK, (x1, y1, self.box_size, self.box_size), 1)
-        if fill:
-            pygame.draw.rect(self.screen, self.BLACK, (x1, y1, self.box_size, self.box_size))
+        
+        pygame.draw.rect(self.screen, color, (x1, y1, self.box_size, self.box_size), 1)
+        pygame.draw.rect(self.screen, color, (x1, y1, self.box_size, self.box_size))
         pygame.display.flip()
 
 
@@ -80,7 +84,3 @@ class PixelDrawer:
                     running = False
 
 
-
- 
-
-    
