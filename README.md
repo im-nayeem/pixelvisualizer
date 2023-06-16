@@ -1,6 +1,6 @@
 # Pixel Plotter - Python Package
 
-`pixelvisualizer` is a Python package for visualizing and plotting pixels while implementing different line or circle drawing algorithms in computer graphics.
+`pixelvisualizer` is a Python package for visualizing and plotting pixels with `pixelplotter` module while implementing different line or circle drawing algorithms in computer graphics. It also contains `drawer` module containing functions to draw lines and circles using different algorithms.
 
 ## Dependency
 First install `pygame` to use this package:
@@ -48,7 +48,8 @@ Here is the complete code:
 from pixelvisualizer import pixelplotter
 plotter = pixelplotter.PixelPlotter()
 plotter.start()
-plotter.plot_pixel(4,5)
+plotter.plot_pixel(4, 5)
+plotter.plot_pixel(6, 5, plotter.RED)  # color is optional (RED, GREEN, BLUE and BLACK color can be used)
 plotter.execute()
 ```
 
@@ -99,8 +100,7 @@ bresenhamsLineDrawing(plotter, 0, 0, 5, 7)
 plotter.execute()
 ```
 **Output:**
-![image](https://github.com/im-nayeem/pixelvisualizer/assets/77660934/c28140a0-96f0-46c1-b58f-6d5ac48871e6)
-
+![image](https://github.com/im-nayeem/pixelvisualizer/assets/77660934/b927c8d2-7a5d-4a76-820b-50b8099159a1)
 ## Example: Bresenham's Circle Drawing Algorithm
 ```python
 from pixelvisualizer import pixelplotter
@@ -134,5 +134,5 @@ drawCircle(plotter, 7, 10, 10)
 plotter.execute()
 ```
 **Output:**
-![image](https://github.com/im-nayeem/pixelvisualizer/assets/77660934/a83b4de5-17cb-4f70-9e42-e1c9a6215ead)
+![image](https://github.com/im-nayeem/pixelvisualizer/assets/77660934/aaba1732-e077-47ac-a1cd-685763acdd1f)
 
