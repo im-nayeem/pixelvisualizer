@@ -9,15 +9,11 @@ def draw_bresenhams_line(plotter, x1, y1, x2, y2, color = (0, 0, 0)):
     dx = x2 - x1
     dy = y2 - y1
 
-    if(dx == 0):
+    if(dx <= 0 or dy < 0):
         draw_DDA_line(plotter, x1, y1, x2, y2, color)
         return
     
     m = dy / dx
-
-    if(m < 1):
-        draw_DDA_line(plotter, x1, y1, x2, y2, color)
-        return
 
     if(m < 1):
         c1 = 2 * dy
